@@ -3,7 +3,7 @@ import { UserModel } from "../../data";
 import { CustomError, LoginUserDTO, RegisterUserDTO } from "../../domain";
 import { UserEntuty } from '../../domain/entities/user.entity';
 import { JwtAdapter, bcryptAdapter, envs } from "../../config";
-import { EmailService } from "./eamil.service";
+import { EmailService } from "./email.service";
 
 
 
@@ -30,8 +30,6 @@ export class AuthService {
 
             //! Email de confirmacion
             await this.sendEmailValidationLink( user.email );
-
-
             const {password, ...userEntity} = UserEntuty.fromObject(user);
 
             const token = await JwtAdapter.generateToken({id: user.id})

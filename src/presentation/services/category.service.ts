@@ -14,7 +14,7 @@ export class CategoryService {
       name: createCategoryDto.name,
     });
 
-    if (categotyExist) return CustomError.badrequest("Category already exists");
+    if (categotyExist) throw CustomError.badrequest("Category already exists");
 
     try {
       const category = new CategoryModel({

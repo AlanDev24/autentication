@@ -23,7 +23,7 @@ export class CategoryController {
         if( error ) return res.status(400).json({ error })
         this.categoryService.createCategory( createCategoryDTO!, req.body.user )
             .then( category=> res.status(200).json( category ))
-            .catch(error => this.handleError( error, res))
+            .catch(error => this.handleError( error, res ))
     }
 
     getCategories = async (req: Request, res: Response)=>{
